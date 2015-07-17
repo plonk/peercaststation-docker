@@ -1,0 +1,6 @@
+#!/bin/sh
+SETTINGS_FILE=/etc/peercaststation/PecaSettings.xml
+mkdir -p `dirname $SETTINGS_FILE`
+touch $SETTINGS_FILE
+docker run -i -P --net=host peercaststation < $SETTINGS_FILE > /tmp/PecaSettings.xml.$$
+mv /tmp/PecaSettings.xml.$$ $SETTINGS_FILE

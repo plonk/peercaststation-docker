@@ -1,0 +1,33 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          peercaststation
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: PeerCastStation
+# Description:       PeerCastStation
+### END INIT INFO
+
+PEERCASTSTATION=/usr/local/bin/peercaststation
+LOGFILE=/var/log/peercaststation.log
+
+. /lib/lsb/init-functions
+
+case "$1" in
+    start)
+        /usr/local/bin/peercaststation 2>> $LOGFILE &
+        exit 0
+        ;;
+    stop)
+        docker stop `docker ps | egrep "\bpeercaststation\b" | cut -d ' ' -f 1`
+        exit 0
+        ;;
+    *)
+        echo "Usage ${0##*/} {start|stop}" >&2
+        exit 3
+        ;;
+esac
+
+exit 0
