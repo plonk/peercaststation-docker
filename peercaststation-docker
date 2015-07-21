@@ -10,18 +10,19 @@
 # Description:       PeerCastStation
 ### END INIT INFO
 
-PEERCASTSTATION=/usr/local/bin/peercaststation
-LOGFILE=/var/log/peercaststation.log
+IMAGE=plonk/peercaststation:latest
+SETTINGS_DIR=/etc/peercast
 
 . /lib/lsb/init-functions
 
 case "$1" in
     start)
-        /usr/local/bin/peercaststation 2>> $LOGFILE &
+	mkdir -p $SETTINGS_DIR
+        docker run -d -i -P --log-driver=syslog --net=host -v /etc/peercaststation:/root/.config/PeerCastStation $IMAGE > /var/run/peercaststation.lock
         exit 0
         ;;
     stop)
-        docker stop `docker ps | egrep "\bpeercaststation\b" | cut -d ' ' -f 1`
+        docker exec `cat /var/run/peercaststation.lock` mono /root/PeerCastStation-1.9.2/PeerCastStation.exe -kill
         exit 0
         ;;
     *)
