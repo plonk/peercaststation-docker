@@ -1,7 +1,7 @@
 # peercaststation-docker
 
 Docker コンテナで動く PeerCastStation。
-相性の良いバージョン mono ランタイムが同梱されており、
+相性の良いバージョンの mono ランタイムが同梱されており、
 隔離された環境で動作します。
 
 ## 要るもの
