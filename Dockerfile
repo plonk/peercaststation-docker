@@ -9,7 +9,7 @@ RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 WORKDIR /root
 
-ADD ./PeerCastStation-1.9.2.zip /root/PeerCastStation-1.9.2.zip
+RUN wget http://www.pecastation.org/files/PeerCastStation-1.9.2.zip
 RUN unzip PeerCastStation-1.9.2.zip
 
 ENV MONO_NO_SMP=1

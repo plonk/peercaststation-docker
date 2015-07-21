@@ -10,20 +10,6 @@
 # Description:       PeerCastStation
 ### END INIT INFO
 
-###
-# Requirements:
-#   * Docker
-#     $ wget -qO- https://get.docker.com/ | sh
-#
-# Installation:
-#   $ sudo install -m 755 peercaststation-docker /etc/init.d
-#   $ sudo update-rc.d peercaststation-docker defaults 98 02
-#
-# Usage:
-#   $ sudo service peercaststation-docker start
-#   $ sudo service peercaststation-docker stop
-###
-
 IMAGE=plonk/peercaststation:latest
 SETTINGS_DIR=/etc/peercaststation
 
