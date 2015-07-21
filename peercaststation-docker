@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          peercaststation
+# Provides:          peercaststation-docker
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
@@ -10,8 +10,22 @@
 # Description:       PeerCastStation
 ### END INIT INFO
 
+###
+# Requirements:
+#   * Docker
+#     $ wget -qO- https://get.docker.com/ | sh
+#
+# Installation:
+#   $ sudo install -m 755 peercaststation-docker /etc/init.d
+#   $ sudo update-rc.d peercaststation-docker defaults 98 02
+#
+# Usage:
+#   $ sudo service peercaststation-docker start
+#   $ sudo service peercaststation-docker stop
+###
+
 IMAGE=plonk/peercaststation:latest
-SETTINGS_DIR=/etc/peercast
+SETTINGS_DIR=/etc/peercaststation
 
 . /lib/lsb/init-functions
 
