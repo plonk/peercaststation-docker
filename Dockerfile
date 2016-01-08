@@ -9,11 +9,11 @@ RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 WORKDIR /root
 
-RUN wget http://www.pecastation.org/files/PeerCastStation-1.9.2.zip
-RUN unzip PeerCastStation-1.9.2.zip
-RUN rm /root/PeerCastStation-1.9.2/PeerCastStation.GUI.dll /root/PeerCastStation-1.9.2/PeerCastStation.WPF.dll
+RUN wget http://www.pecastation.org/files/PeerCastStation-2.1.2.zip
+RUN unzip PeerCastStation-2.1.2.zip
+RUN rm /root/PeerCastStation-2.1.2/PeerCastStation.GUI.dll /root/PeerCastStation-2.1.2/PeerCastStation.WPF.dll
 
 ENV MONO_NO_SMP=1
 ENV MONO_ENABLE_SHM=1
 
-CMD ["mono", "/root/PeerCastStation-1.9.2/PeerCastStation.exe"]
+CMD ["mono", "/root/PeerCastStation-2.1.2/PeerCastStation.exe"]
