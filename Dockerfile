@@ -9,10 +9,10 @@ RUN rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 WORKDIR /root
 
-RUN wget http://www.pecastation.org/files/PeerCastStation-1.9.2.zip
-RUN unzip PeerCastStation-1.9.2.zip
-RUN rm PeerCastStation-1.9.2.zip
-RUN mv PeerCastStation-1.9.2 PeerCastStation
+RUN wget http://www.pecastation.org/files/PeerCastStation-2.0.0.zip
+RUN unzip PeerCastStation-2.0.0.zip
+RUN rm PeerCastStation-2.0.0.zip
+RUN mv PeerCastStation-2.0.0 PeerCastStation
 RUN rm /root/PeerCastStation/PeerCastStation.GUI.dll /root/PeerCastStation/PeerCastStation.WPF.dll
 
 ENV MONO_NO_SMP=1
