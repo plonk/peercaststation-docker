@@ -11,9 +11,11 @@ WORKDIR /root
 
 RUN wget http://www.pecastation.org/files/PeerCastStation-1.9.2.zip
 RUN unzip PeerCastStation-1.9.2.zip
-RUN rm /root/PeerCastStation-1.9.2/PeerCastStation.GUI.dll /root/PeerCastStation-1.9.2/PeerCastStation.WPF.dll
+RUN rm PeerCastStation-1.9.2.zip
+RUN mv PeerCastStation-1.9.2 PeerCastStation
+RUN rm /root/PeerCastStation/PeerCastStation.GUI.dll /root/PeerCastStation/PeerCastStation.WPF.dll
 
 ENV MONO_NO_SMP=1
 ENV MONO_ENABLE_SHM=1
 
-CMD ["mono", "/root/PeerCastStation-1.9.2/PeerCastStation.exe"]
+CMD ["mono", "/root/PeerCastStation/PeerCastStation.exe"]

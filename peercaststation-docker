@@ -10,7 +10,7 @@
 # Description:       PeerCastStation
 ### END INIT INFO
 
-IMAGE=plonk/peercaststation:latest
+IMAGE=plonk/peercaststation
 SETTINGS_DIR=/etc/peercaststation
 
 . /lib/lsb/init-functions
@@ -22,7 +22,7 @@ case "$1" in
         exit 0
         ;;
     stop)
-        docker exec `cat /var/run/peercaststation.lock` mono /root/PeerCastStation-1.9.2/PeerCastStation.exe -kill
+        docker exec `cat /var/run/peercaststation.lock` mono /root/PeerCastStation/PeerCastStation.exe -kill
         exit 0
         ;;
     *)
