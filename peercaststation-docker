@@ -10,7 +10,7 @@
 # Description:       PeerCastStation
 ### END INIT INFO
 
-IMAGE=plonk/peercaststation:latest
+IMAGE=plonk/peercaststation
 SETTINGS_DIR=/etc/peercaststation
 
 . /lib/lsb/init-functions
